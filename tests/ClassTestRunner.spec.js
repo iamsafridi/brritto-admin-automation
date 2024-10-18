@@ -11,6 +11,7 @@ test.describe("Program Management -> Class", () => {
     await expect(
       page.getByRole("heading", { name: "Class List" })
     ).toBeVisible();
+    await page.waitForLoadState("networkidle");
   });
 
   test("Admin can create class successfully", async ({ page }) => {
@@ -30,6 +31,7 @@ test.describe("Program Management -> Class", () => {
     const editClass = new Class(page);
 
     await editClass.searchField.fill("automation");
+    await page.waitForTimeout(1000);
     await editClass.editBtn.click();
     await editClass.inactiveBtn.click();
     await editClass.updateBtn.click();
@@ -42,6 +44,7 @@ test.describe("Program Management -> Class", () => {
 
     await deleteClass.statusFilter.click();
     await deleteClass.selectInactive.click();
+    await page.waitForTimeout(1000);
     await deleteClass.deleteBtn.click();
     await deleteClass.confirmDeleteBtn.click();
 
