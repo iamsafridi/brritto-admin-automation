@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import Course from "../pages/program-management/Course";
 import { login } from "../pages/AuthHelper";
 
-test.describe("Program Management -> Class", () => {
+test.describe("Program Management -> Course", () => {
   test.beforeEach(async ({ page }) => {
     await login(page);
     const course = new Course(page);
