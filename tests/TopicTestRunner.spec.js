@@ -20,7 +20,7 @@ test.describe("Program Management -> Topic", () => {
 
     await createTopic.addTopicBtn.click();
     await createTopic.topicNameInput.click();
-    await createTopic.topicNameInput.fill(Utils.name);
+    await createTopic.topicNameInput.fill("Automation");
     await page.waitForTimeout(2000);
     await createTopic.classInput.click();
     await createTopic.selectClass.click();
@@ -38,7 +38,7 @@ test.describe("Program Management -> Topic", () => {
   test("Admin can edit Topic successfully", async ({ page }) => {
     const editTopic = new Topic(page);
 
-    await editTopic.searchField.fill(Utils.name);
+    await editTopic.searchField.fill("Automation");
     await page.waitForTimeout(2000);
     await editTopic.editBtn.click();
     await editTopic.inactiveBtn.click();

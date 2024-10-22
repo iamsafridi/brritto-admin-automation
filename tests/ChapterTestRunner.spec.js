@@ -19,7 +19,7 @@ test.describe("Program Management -> Chapter Feature", () => {
     const chapter = new Chapter(page);
 
     await chapter.addChapterBtn.click();
-    await chapter.chapterNameInput.fill(Utils.name);
+    await chapter.chapterNameInput.fill("Automation");
     await chapter.classInput.click();
     await chapter.selectClass.click();
     await chapter.course.click();
@@ -34,7 +34,7 @@ test.describe("Program Management -> Chapter Feature", () => {
   test("Admin can edit Chapter successfully", async ({ page }) => {
     const chapter = new Chapter(page);
 
-    await chapter.searchField.fill(Utils.name);
+    await chapter.searchField.fill("Automation");
     await page.waitForTimeout(1000);
     await chapter.editBtn.click();
     await chapter.inactiveBtn.click();
