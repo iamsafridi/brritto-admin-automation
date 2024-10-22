@@ -3,12 +3,22 @@ class Course {
     this.page = page;
     this.programManagementTab = page.getByText("Program Management");
     this.courseTab = page.getByRole("link", { name: "Course" });
+
+    this.addCourseElement(page)
+
+    this.statusFilter = page.locator("#rc_select_2");
+    this.selectInactive = page.getByTitle("Inactive").locator("div");
+
+    this.deleteCourseElement(page)
+  }
+
+  addCourseElement(page) {
     this.addCourseBtn = page.getByRole("button", { name: "Add Course" });
     this.courseNameInput = page.getByLabel("Course Name");
     this.courseType = page.getByLabel("Course Type");
     this.selectCourseType = page.getByText("Concept Book");
     this.classInput = page.getByLabel("Class");
-    this.selectClass = page.getByTitle("Admission").locator("div");
+    this.selectClass = page.getByTitle("Admission", {exact: true}).locator("div");
     this.courseCategory = page.getByLabel("Course Category");
     this.selectCourseCategory = page.getByText("Engineering");
     this.priceInput = page.getByLabel("Price", { exact: true });
@@ -20,10 +30,16 @@ class Course {
     this.editBtn = page.getByRole("button", { name: "edit" });
     this.inactiveBtn = page.getByText("Inactive");
     this.updateBtn = page.getByRole("button", { name: "Update" });
-    this.statusFilter = page.locator("#rc_select_2");
-    this.selectInactive = page.getByTitle("Inactive").locator("div");
+  }
+
+  deleteCourseElement(page) {
     this.deleteBtn = page.getByRole("button", { name: "delete" });
     this.confirmDelete = page.getByRole("button", { name: "OK" });
   }
+
 }
+
+
+
+
 export default Course;

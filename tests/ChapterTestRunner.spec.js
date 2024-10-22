@@ -1,8 +1,9 @@
 import { test, expect } from "@playwright/test";
 import Chapter from "../pages/program-management/Chapter";
+import Utils from "../pages/utils";
 import { login } from "../pages/AuthHelper";
 
-test.describe("Program Management -> Chapter", () => {
+test.describe("Program Management -> Chapter Feature", () => {
   test.beforeEach(async ({ page }) => {
     await login(page);
     const chapter = new Chapter(page);
@@ -15,41 +16,41 @@ test.describe("Program Management -> Chapter", () => {
   });
 
   test("Admin can create chapter successfully", async ({ page }) => {
-    const createChapter = new Chapter(page);
+    const chapter = new Chapter(page);
 
-    await createChapter.addChapterBtn.click();
-    await createChapter.chapterNameInput.fill("automation");
-    await createChapter.classInput.click();
-    await createChapter.selectClass.click();
-    await createChapter.course.click();
-    await createChapter.selectCourse.click();
-    await createChapter.subject.click();
-    await createChapter.selectSubject.click();
-    await createChapter.serialNumberInput.fill("99");
-    await createChapter.submitBtn.click();
+    await chapter.addChapterBtn.click();
+    await chapter.chapterNameInput.fill(Utils.name);
+    await chapter.classInput.click();
+    await chapter.selectClass.click();
+    await chapter.course.click();
+    await chapter.selectCourse.click();
+    await chapter.subject.click();
+    await chapter.selectSubject.click();
+    await chapter.serialNumberInput.fill("99");
+    await chapter.submitBtn.click();
     await expect(page.getByText("Successfully created")).toBeVisible();
   });
 
   test("Admin can edit Chapter successfully", async ({ page }) => {
-    const editChapter = new Chapter(page);
+    const chapter = new Chapter(page);
 
-    await editChapter.searchField.fill("automation");
+    await chapter.searchField.fill(Utils.name);
     await page.waitForTimeout(1000);
-    await editChapter.editBtn.click();
-    await editChapter.inactiveBtn.click();
-    await editChapter.updateBtn.click();
+    await chapter.editBtn.click();
+    await chapter.inactiveBtn.click();
+    await chapter.updateBtn.click();
 
     await expect(page.getByText("Successfully updated")).toBeVisible();
   });
 
   test("Admin can delete Chapter successfully", async ({ page }) => {
-    const deleteChapter = new Chapter(page);
+    const chapter = new Chapter(page);
 
-    await deleteChapter.statusFilter.click();
-    await deleteChapter.selectInactive.click();
+    await chapter.statusFilter.click();
+    await chapter.selectInactive.click();
     await page.waitForTimeout(1000);
-    await deleteChapter.deleteBtn.click();
-    await deleteChapter.confirmDelete.click();
+    await chapter.deleteBtn.click();
+    await chapter.confirmDelete.click();
 
     await expect(page.getByText("Successfully deleted")).toBeVisible();
   });

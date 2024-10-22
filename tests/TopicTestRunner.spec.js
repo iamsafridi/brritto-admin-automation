@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import Topic from "../pages/program-management/Topic";
 import { login } from "../pages/AuthHelper";
+import Utils from "../pages/utils";
 
 test.describe("Program Management -> Topic", () => {
   test.beforeEach(async ({ page }) => {
@@ -19,7 +20,7 @@ test.describe("Program Management -> Topic", () => {
 
     await createTopic.addTopicBtn.click();
     await createTopic.topicNameInput.click();
-    await createTopic.topicNameInput.fill("automation");
+    await createTopic.topicNameInput.fill(Utils.name);
     await page.waitForTimeout(2000);
     await createTopic.classInput.click();
     await createTopic.selectClass.click();
@@ -37,7 +38,7 @@ test.describe("Program Management -> Topic", () => {
   test("Admin can edit Topic successfully", async ({ page }) => {
     const editTopic = new Topic(page);
 
-    await editTopic.searchField.fill("automation");
+    await editTopic.searchField.fill(Utils.name);
     await page.waitForTimeout(2000);
     await editTopic.editBtn.click();
     await editTopic.inactiveBtn.click();

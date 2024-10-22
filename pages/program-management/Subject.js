@@ -8,7 +8,7 @@ class Subject {
     this.subjectCode = page.getByLabel("Subject Code");
     this.selectSubjectCode = page.getByText("1", { exact: true }).nth(2);
     this.classInput = page.getByLabel("Class");
-    this.selectClass = page.getByTitle("Admission").locator("div");
+    this.selectClass = page.getByTitle("Admission", {exact: true}).locator("div");
     this.course = page.getByLabel("Course");
     this.selectCourse = page.getByText("ইঞ্জিনিয়ারিং পদার্থবিজ্ঞান");
     this.submitBtn = page.getByRole("button", { name: "Submit" });

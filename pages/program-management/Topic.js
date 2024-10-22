@@ -9,7 +9,7 @@ class Topic {
       .contentFrame()
       .getByLabel("Rich Text Area. Press ALT-0");
     this.classInput = page.getByLabel("Class");
-    this.selectClass = page.getByTitle("Admission").locator("div");
+    this.selectClass = page.getByTitle("Admission", {exact: true}).locator("div");
     this.course = page.getByLabel("Course");
     this.selectCourse = page.getByText("ইঞ্জিনিয়ারিং পদার্থবিজ্ঞান");
     this.subject = page.getByLabel("Subject");

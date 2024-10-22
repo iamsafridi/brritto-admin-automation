@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import Class from "../pages/program-management/Class";
 import { login } from "../pages/AuthHelper";
+import Utils from "../pages/utils";
 
 test.describe("Program Management -> Class", () => {
   test.beforeEach(async ({ page }) => {
@@ -18,7 +19,7 @@ test.describe("Program Management -> Class", () => {
     const createClass = new Class(page);
 
     await createClass.addClassBtn.click();
-    await createClass.classNameInput.fill("automation");
+    await createClass.classNameInput.fill(Utils.name);
     await createClass.classManagerInput.click();
     await createClass.selectManager.click();
     await createClass.afterManagerClickOutside.click();
@@ -30,7 +31,7 @@ test.describe("Program Management -> Class", () => {
   test("Admin can edit class successfully", async ({ page }) => {
     const editClass = new Class(page);
 
-    await editClass.searchField.fill("automation");
+    await editClass.searchField.fill(Utils.name);
     await page.waitForTimeout(1000);
     await editClass.editBtn.click();
     await editClass.inactiveBtn.click();
