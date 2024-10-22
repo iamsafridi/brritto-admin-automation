@@ -33,7 +33,7 @@ test.describe("Program Management -> Subject", () => {
     const editSubject = new Subject(page);
 
     await editSubject.searchField.fill("automation");
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
     await editSubject.editBtn.click();
     await editSubject.inactiveBtn.click();
     await editSubject.updateBtn.click();

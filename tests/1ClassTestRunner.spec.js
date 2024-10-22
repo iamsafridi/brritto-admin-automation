@@ -7,6 +7,7 @@ test.describe("Program Management -> Class", () => {
     await login(page);
     const cls = new Class(page);
     await cls.programManagementTab.click();
+    await page.waitForTimeout(500);
     await cls.classTab.click();
     await expect(
       page.getByRole("heading", { name: "Class List" })
@@ -31,7 +32,7 @@ test.describe("Program Management -> Class", () => {
     const editClass = new Class(page);
 
     await editClass.searchField.fill("automation");
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
     await editClass.editBtn.click();
     await editClass.inactiveBtn.click();
     await editClass.updateBtn.click();

@@ -34,7 +34,7 @@ test.describe("Program Management -> Chapter", () => {
     const editChapter = new Chapter(page);
 
     await editChapter.searchField.fill("automation");
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
     await editChapter.editBtn.click();
     await editChapter.inactiveBtn.click();
     await editChapter.updateBtn.click();
@@ -47,7 +47,7 @@ test.describe("Program Management -> Chapter", () => {
 
     await deleteChapter.statusFilter.click();
     await deleteChapter.selectInactive.click();
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
     await deleteChapter.deleteBtn.click();
     await deleteChapter.confirmDelete.click();
 

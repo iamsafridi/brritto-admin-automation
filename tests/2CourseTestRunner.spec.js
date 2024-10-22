@@ -36,9 +36,8 @@ test.describe("Program Management -> Course", () => {
   test("Admin can edit course successfully", async ({ page }) => {
     const editCourse = new Course(page);
 
-    await page.waitForTimeout(1000);
     await editCourse.searchField.fill("automation");
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
     await editCourse.editBtn.click();
     await editCourse.inactiveBtn.click();
     await editCourse.updateBtn.click();
