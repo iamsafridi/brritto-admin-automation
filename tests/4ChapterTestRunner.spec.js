@@ -1,6 +1,5 @@
 import { test, expect } from "@playwright/test";
 import Chapter from "../pages/program-management/Chapter";
-import Utils from "../pages/utils";
 import { login } from "../pages/AuthHelper";
 
 test.describe("Program Management -> Chapter Feature", () => {
