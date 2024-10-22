@@ -32,7 +32,7 @@ test.describe("Program Management -> Chapter Feature", () => {
   });
 
   test("Admin can edit Chapter successfully", async ({ page }) => {
-    const chapter = new Chapter(page);
+    const editChapter = new Chapter(page);
 
     await editChapter.searchField.fill("automation");
     await page.waitForTimeout(1000);

@@ -1,7 +1,6 @@
 import { test, expect } from "@playwright/test";
 import Topic from "../pages/program-management/Topic";
 import { login } from "../pages/AuthHelper";
-import Utils from "../pages/utils";
 
 test.describe("Program Management -> Topic", () => {
   test.beforeEach(async ({ page }) => {
