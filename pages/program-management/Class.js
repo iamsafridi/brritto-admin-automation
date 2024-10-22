@@ -7,6 +7,7 @@ class Class {
     this.classNameInput = page.getByLabel("Class Name");
     this.classManagerInput = page.locator(".ant-select-selection-overflow");
     this.selectManager = page.getByText("brritto-admin");
+    this.classMangerList = page.locator(".ant-select-dropdown .rc-virtual-list-holder-inner");
     this.afterManagerClickOutside = page
       .locator("div")
       .filter({ hasText: /^Class Manager$/ });

@@ -23,10 +23,7 @@ module.exports = defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 1 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: 1,
-  // @ts-ignore
-  screenshot: "only-on-failure", // Capture screenshots for failed tests
-  video: "retain-on-failure",
+  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: "html",
   timeout: 60000,
